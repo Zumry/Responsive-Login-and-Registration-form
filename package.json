@@ -4,7 +4,9 @@
   "description": "Responsive Login and Registration form in React, css",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel index.jsx"
   },
   "repository": {
     "type": "git",
