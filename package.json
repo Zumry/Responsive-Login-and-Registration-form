@@ -1,0 +1,26 @@
+{
+  "name": "login-react",
+  "version": "1.0.0",
+  "description": "Responsive Login and Registration form in React, css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zumry/Responsive-Login-and-Registration-form.git"
+  },
+  "author": "Zumry Amanullah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zumry/Responsive-Login-and-Registration-form/issues"
+  },
+  "homepage": "https://github.com/Zumry/Responsive-Login-and-Registration-form#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
