@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTwitter, faLinkedin, faFacebook, faGoogle} from '@fortawesome/fontawesome-free-brands';
 import '../styles/LoginRegister.css';
 
 //Images
@@ -39,7 +41,7 @@ class LoginRegister extends Component {
     }
 
     render() {
-        return <div className={"Login-Section"}>
+        return <div>
             <div className={this.state.isActive===true ? "container" : "container sign-up-mode"} id={"container"}>
                 <div className={"forms-container"}>
                     <div className={"signin-signup"}>
@@ -57,16 +59,16 @@ class LoginRegister extends Component {
                             <p className={"social-text"}> or Sign in with social platforms </p>
                             <div className={"social-media"}>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-facebook-f"}></i>
+                                    <FontAwesomeIcon icon={ faFacebook }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-twitter"}></i>
+                                    <FontAwesomeIcon icon={ faTwitter }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-google"}></i>
+                                    <FontAwesomeIcon icon={ faGoogle }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-linkedin-in"}></i>
+                                    <FontAwesomeIcon icon={ faLinkedin }/>
                                 </a>
                             </div>
                         </form>
@@ -89,16 +91,16 @@ class LoginRegister extends Component {
                             <p className={"social-media"}>Or Sign up with social platforms</p>
                             <div className={"social-media"}>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-facebook-f"}></i>
+                                    <FontAwesomeIcon icon={ faFacebook }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-twitter"}></i>
+                                    <FontAwesomeIcon icon={ faTwitter }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-google"}></i>
+                                    <FontAwesomeIcon icon={ faGoogle }/>
                                 </a>
                                 <a href={"#"} className={"social-icon"}>
-                                    <i className={"fab fa-linkedin-in"}></i>
+                                    <FontAwesomeIcon icon={ faLinkedin }/>
                                 </a>
                             </div>
                         </form>
