@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import '../styles/LoginRegister.css';
 
 //Images
-import Img011 from 'url:../images/LoginRegister/bg1.svg';
-import Img022 from 'url:../images/LoginRegister/bg2.svg';
+import Img01 from 'url:../images/LoginRegister/bg1.svg';
+import Img02 from 'url:../images/LoginRegister/bg2.svg';
 import ImgEmail from 'url:../images/LoginRegister/email.png';
 import ImgLock from 'url:../images/LoginRegister/lock.png';
 import ImgUser from 'url:../images/LoginRegister/user.png';
@@ -23,6 +23,14 @@ class LoginRegister extends Component {
         this.state = {
             isActive:true
         }
+    }
+
+    changeSignInForm(){
+        this.setState({isActive:false})
+    }
+
+    changeSignUpForm(){
+        this.setState({isActive:true})
     }
 
     onChange(event){
@@ -95,6 +103,34 @@ class LoginRegister extends Component {
                             </div>
                         </form>
                     </div>
+                </div>
+
+                <div className={"panels-container"}>
+
+                    <div className={"panel left-panel"}>
+                        <div className={"content"}>
+                            <h3>New here ?</h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                                ex ratione. Aliquid!
+                            </p>
+                            <button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>
+                        </div>
+                        <img src={Img01} className={"image"} alt={"fb"}/>
+                    </div>
+
+                    <div className={"panel right-panel"}>
+                        <div className={"content"}>
+                            <h3>One of us</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                                laboriosam ad deleniti.
+                            </p>
+                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} > Sign in</button>
+                        </div>
+                        <img src={Img02} className={"image"} alt={"fb"} />
+                    </div>
+
                 </div>
 
             </div>
