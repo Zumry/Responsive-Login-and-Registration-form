@@ -28,7 +28,8 @@ class LoginRegister extends Component {
             isEyeImage: true,
             isOnClicked: true,
             password:'',
-            username:''
+            username:'',
+            email:''
         }
     }
 
@@ -107,16 +108,27 @@ class LoginRegister extends Component {
                             <form className={"sign-up-form"}>
                                 <h2 className={"title"}>Sign up</h2>
                                 <div className={"input-field"}>
-                                    <i className={"fas fa-user"}></i>
-                                    <input type={"text"} placeholder={"Username"} />
+                                    <img src={ImgUsers} className={"fas"}/>
+                                    <input type="text" name={"username"} id={"username"} value={this.state.username}
+                                           placeholder={"username"} onChange={event => this.onChange(event)} />
                                 </div>
                                 <div className={"input-field"}>
-                                    <i className={"fas fa-envelop"}></i>
-                                    <input type={"email"} placeholder={"Email"} />
+                                    <img src={ImgEmail} className={"fas"}/>
+                                    <input type={"email"} name={"email"} id={"email"} value={this.state.email}
+                                           placeholder={"Email"} onChange={event => this.onChange(event)} />
                                 </div>
                                 <div className={"input-field"}>
-                                    <i className={"fas fa-lock"}></i>
-                                    <input type={"password"} placeholder={"password"} />
+                                    <img src={ImgLock} className={"fas"}/>
+                                    <input
+                                        type={this.state.isPasswordShown===false ? "password" : "text"}
+                                        name={'password'} id={'password'} value={this.state.password} placeholder={"Password"}
+                                        onChange={event => this.onChange(event)}
+                                    />
+                                    <img
+                                        src={this.state.isEyeImage===true ? ImgEye : ImgEyeHide}
+                                        className={"eye"}
+                                        onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
+                                    />
                                 </div>
                                 <input type={"submit"} className={"btn"} value={"sign up"} />
                                 <p className={"social-media"}>Or Sign up with social platforms</p>
