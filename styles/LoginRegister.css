@@ -7,16 +7,16 @@
 
 /* ---------- icon css -------- */
 
-/*.Login-Section .fas {*/
-/*    padding: 15px;*/
-/*}*/
+.Login-Section .fas {
+    padding: 15px;
+}
 
-/*.Login-Section .eye{*/
-/*    position: absolute;*/
-/*    top: 16px;*/
-/*    right: 12px;*/
-/*    cursor: pointer;*/
-/*}*/
+.Login-Section .eye{
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    cursor: pointer;
+}
 
 /*.Login-Section .p-link {*/
 /*    padding-top: 5px;*/

@@ -23,7 +23,11 @@ class LoginRegister extends Component {
         super(props);
 
         this.state = {
-            isActive:true
+            isActive:true,
+            isPasswordShown: false,
+            isEyeImage: true,
+            isOnClicked: true,
+            password:''
         }
     }
 
@@ -35,108 +39,139 @@ class LoginRegister extends Component {
         this.setState({isActive:true})
     }
 
+    PasswordVisibility(){
+        this.setState({isPasswordShown:true});
+        this.setState({isEyeImage:false});
+        this.setState({isOnClicked:false})
+    };
+
+    PasswordNotVisibility(){
+        this.setState({isPasswordShown:false});
+        this.setState({isEyeImage:true});
+        this.setState({isOnClicked:true})
+    };
+
     onChange(event){
         const { name, value } = event.target;
         this.setState({ [name] : value });
     }
 
     render() {
-        return <div>
-            <div className={this.state.isActive===true ? "container" : "container sign-up-mode"} id={"container"}>
-                <div className={"forms-container"}>
-                    <div className={"signin-signup"}>
-                        <form className={"sign-in-form"}>
-                            <h2 className={"title"}>Sign in</h2>
-                            <div className={"input-field"}>
-                                <i className={"fas fa-user"}></i>
-                                <input type="text" placeholder={"username"} />
-                            </div>
-                            <div className={"input-field"}>
-                                <i className={"fas fa-lock"}></i>
-                                <input type="password" placeholder={"Password"} />
-                            </div>
-                            <input type="submit" value={"Login"} className={"btn solid"} />
-                            <p className={"social-text"}> or Sign in with social platforms </p>
-                            <div className={"social-media"}>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faFacebook }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faTwitter }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faGoogle }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faLinkedin }/>
-                                </a>
-                            </div>
-                        </form>
+        return (
+            <div className={"Login-Section"}>
+                <div className={this.state.isActive===true ? "container" : "container sign-up-mode"} id={"container"}>
+                    <div className={"forms-container"}>
+                        <div className={"signin-signup"}>
 
-                        <form className={"sign-up-form"}>
-                            <h2 className={"title"}>Sign up</h2>
-                            <div className={"input-field"}>
-                                <i className={"fas fa-user"}></i>
-                                <input type={"text"} placeholder={"Username"} />
-                            </div>
-                            <div className={"input-field"}>
-                                <i className={"fas fa-envelop"}></i>
-                                <input type={"email"} placeholder={"Email"} />
-                            </div>
-                            <div className={"input-field"}>
-                                <i className={"fas fa-lock"}></i>
-                                <input type={"password"} placeholder={"password"} />
-                            </div>
-                            <input type={"submit"} className={"btn"} value={"sign up"} />
-                            <p className={"social-media"}>Or Sign up with social platforms</p>
-                            <div className={"social-media"}>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faFacebook }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faTwitter }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faGoogle }/>
-                                </a>
-                                <a href={"#"} className={"social-icon"}>
-                                    <FontAwesomeIcon icon={ faLinkedin }/>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                    {/* ----------------------------- Login Form ----------------------------- */}
+                            <form className={"sign-in-form"}>
+                                <h2 className={"title"}>Sign in</h2>
+                                <div className={"input-field"}>
+                                    {/*<i className={"fas fa-user"}></i>*/}
+                                    <img src={ImgEmail} className={"fas"}/>
+                                    <input type="text" placeholder={"username"} />
+                                </div>
+                                <div className={"input-field"}>
+                                    {/*<i className={"fas fa-lock"}></i>*/}
+                                    <img src={ImgLock} className={"fas"}/>
+                                    <input
+                                        type={this.state.isPasswordShown===false ? "password" : "text"}
+                                        name={'password'} id={'password'}
+                                        value={this.state.password} placeholder={"Password"}
+                                        onChange={event => this.onChange(event)}
+                                    />
+                                    <img
+                                        src={this.state.isEyeImage===true ? ImgEye : ImgEyeHide}
+                                        className={"eye"}
+                                        onClick={this.state.isOnClicked===true ? this.PasswordVisibility.bind(this) : this.PasswordNotVisibility.bind(this)}
+                                    />
+                                </div>
+                                <input type="submit" value={"Login"} className={"btn solid"} />
+                                <p className={"social-text"}> or Sign in with social platforms </p>
+                                <div className={"social-media"}>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faFacebook }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faTwitter }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faGoogle }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faLinkedin }/>
+                                    </a>
+                                </div>
+                            </form>
 
-                <div className={"panels-container"}>
+                {/* ----------------------------- Registration Form ----------------------------- */}
+                            <form className={"sign-up-form"}>
+                                <h2 className={"title"}>Sign up</h2>
+                                <div className={"input-field"}>
+                                    <i className={"fas fa-user"}></i>
+                                    <input type={"text"} placeholder={"Username"} />
+                                </div>
+                                <div className={"input-field"}>
+                                    <i className={"fas fa-envelop"}></i>
+                                    <input type={"email"} placeholder={"Email"} />
+                                </div>
+                                <div className={"input-field"}>
+                                    <i className={"fas fa-lock"}></i>
+                                    <input type={"password"} placeholder={"password"} />
+                                </div>
+                                <input type={"submit"} className={"btn"} value={"sign up"} />
+                                <p className={"social-media"}>Or Sign up with social platforms</p>
+                                <div className={"social-media"}>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faFacebook }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faTwitter }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faGoogle }/>
+                                    </a>
+                                    <a href={"#"} className={"social-icon"}>
+                                        <FontAwesomeIcon icon={ faLinkedin }/>
+                                    </a>
+                                </div>
+                            </form>
+            {/* ------------ Registration Form  end ------------ */}
 
-                    <div className={"panel left-panel"}>
-                        <div className={"content"}>
-                            <h3>New here ?</h3>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                ex ratione. Aliquid!
-                            </p>
-                            <button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>
                         </div>
-                        <img src={Img01} className={"image"} alt={"fb"}/>
                     </div>
-
-                    <div className={"panel right-panel"}>
-                        <div className={"content"}>
-                            <h3>One of us</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                                laboriosam ad deleniti.
-                            </p>
-                            <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} > Sign in</button>
+    
+                    <div className={"panels-container"}>
+    
+                        <div className={"panel left-panel"}>
+                            <div className={"content"}>
+                                <h3>New here ?</h3>
+                                <p>
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                                    ex ratione. Aliquid!
+                                </p>
+                                <button className={"btn transparent"} id={"sign-up-btn"} onClick={this.changeSignInForm.bind(this)} >Sign up</button>
+                            </div>
+                            <img src={Img01} className={"image"} alt={"fb"}/>
                         </div>
-                        <img src={Img02} className={"image"} alt={"fb"} />
+    
+                        <div className={"panel right-panel"}>
+                            <div className={"content"}>
+                                <h3>One of us</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                                    laboriosam ad deleniti.
+                                </p>
+                                <button className={"btn transparent"} id={"sign-in-btn"} onClick={this.changeSignUpForm.bind(this)} > Sign in</button>
+                            </div>
+                            <img src={Img02} className={"image"} alt={"fb"} />
+                        </div>
+    
                     </div>
-
+    
                 </div>
-
             </div>
-        </div>
+        );
     }
 }
 
