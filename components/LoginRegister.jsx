@@ -27,7 +27,8 @@ class LoginRegister extends Component {
             isPasswordShown: false,
             isEyeImage: true,
             isOnClicked: true,
-            password:''
+            password:'',
+            username:''
         }
     }
 
@@ -67,17 +68,15 @@ class LoginRegister extends Component {
                             <form className={"sign-in-form"}>
                                 <h2 className={"title"}>Sign in</h2>
                                 <div className={"input-field"}>
-                                    {/*<i className={"fas fa-user"}></i>*/}
-                                    <img src={ImgEmail} className={"fas"}/>
-                                    <input type="text" placeholder={"username"} />
+                                    <img src={ImgUser} className={"fas"}/>
+                                    <input type="text" name={"username"} id={"username"} value={this.state.username}
+                                           placeholder={"username"} onChange={event => this.onChange(event)} />
                                 </div>
                                 <div className={"input-field"}>
-                                    {/*<i className={"fas fa-lock"}></i>*/}
                                     <img src={ImgLock} className={"fas"}/>
                                     <input
                                         type={this.state.isPasswordShown===false ? "password" : "text"}
-                                        name={'password'} id={'password'}
-                                        value={this.state.password} placeholder={"Password"}
+                                        name={'password'} id={'password'} value={this.state.password} placeholder={"Password"}
                                         onChange={event => this.onChange(event)}
                                     />
                                     <img
