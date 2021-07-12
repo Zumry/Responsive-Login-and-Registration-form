@@ -60,7 +60,7 @@ class LoginRegister extends Component {
     render() {
         return (
             <div className={"Login-Section"}>
-                <div className={this.state.isActive===true ? "container" : "container sign-up-mode"} id={"container"}>
+                <div className={this.state.isActive===true ? "login-container" : "login-container sign-up-mode"} id={"container"}>
                     <div className={"forms-container"}>
                         <div className={"signin-signup"}>
 
