@@ -18,18 +18,22 @@ import ImgEyeHide from 'url:../images/LoginRegister/eye-hide.png';
  * @portfolio : https://www.zumry.ml
  */
 
+const initialState = {
+    password:'',
+    username:'',
+    email:''
+}
+
 class LoginRegister extends Component {
     constructor(props){
         super(props);
 
         this.state = {
+            initialState,
             isActive:true,
             isPasswordShown: false,
             isEyeImage: true,
-            isOnClicked: true,
-            password:'',
-            username:'',
-            email:''
+            isOnClicked: true
         }
     }
 
