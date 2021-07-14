@@ -19,6 +19,8 @@ import ImgEyeHide from 'url:../images/LoginRegister/eye-hide.png';
  */
 
 const initialState = {
+    isPasswordShown: false,
+    isEyeImage: true,
     password:'',
     username:'',
     email:''
