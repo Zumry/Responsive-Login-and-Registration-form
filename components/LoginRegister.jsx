@@ -39,12 +39,16 @@ class LoginRegister extends Component {
         }
     }
 
+    // redirecting to Sign-in page
     changeSignInForm(){
+        // set state value to initialize state value
         this.setState(initialState);
         this.setState({isActive:false})
     }
 
+    // redirecting to  Sign-up page
     changeSignUpForm(){
+        // set state value to initialize state value
         this.setState(initialState);
         this.setState({isActive:true})
     }
