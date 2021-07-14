@@ -40,10 +40,12 @@ class LoginRegister extends Component {
     }
 
     changeSignInForm(){
+        this.setState(initialState);
         this.setState({isActive:false})
     }
 
     changeSignUpForm(){
+        this.setState(initialState);
         this.setState({isActive:true})
     }
 
